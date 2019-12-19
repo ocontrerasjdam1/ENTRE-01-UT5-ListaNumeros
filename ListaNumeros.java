@@ -110,17 +110,27 @@ public class ListaNumeros
         return false;
     }
 
-    // /**
-    // * Representación textual de la lista de la forma indicada  (ver enunciado)
-    // * Si numeros = {14, 8, 13, 9, 11, 5, 3, 10, 7, 1}
-    // *  devuelve | 14 | 8 | 13 | 9 | 11 | 5 | 3 | 10 | 7 | 1 |
-    // * 
-    // * Si la lista está vacía devuelve | |
-    // */
-    // public String toString() 
-    // {
-
-    // }
+    /**
+    * Representación textual de la lista de la forma indicada  (ver enunciado)
+    * Si numeros = {14, 8, 13, 9, 11, 5, 3, 10, 7, 1}
+    *  devuelve | 14 | 8 | 13 | 9 | 11 | 5 | 3 | 10 | 7 | 1 |
+    * 
+    * Si la lista está vacía devuelve | |
+    */
+    public String toString() 
+    {
+         String str = "";
+        if(pos == 0){
+            str += "| |";
+        }else{
+            for(int i = 0; i < pos; i++){
+                str += " | " + numeros[i];
+            }
+            str += " |";
+        }
+        return str;
+    }
+    
     /**
      * Mostrar en pantalla la lista
      */
@@ -164,7 +174,7 @@ public class ListaNumeros
      *  después de reorganizarParesImpares() quedaría {4, 2, 8, 3, 7, 9, 5, 11, 13}
      */
     public void reorganizarParesImpares() {
-
+       
     }
 
     /**
