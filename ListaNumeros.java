@@ -26,7 +26,8 @@ public class ListaNumeros
         if (n > TAM_LISTA) {
             throw new IllegalArgumentException("Valor no permitido para tamaño lista");
         }
-        // completar
+        numeros = new int [n];
+        int pos = 0;
     }
 
     /**
@@ -38,8 +39,13 @@ public class ListaNumeros
      */
     public boolean addElemento(int numero)
     {
-        
-        return true;
+
+        if(!estaCompleta() && !estaElemento(numero)){
+            numeros[pos] = numero;
+            pos++;
+            return true;
+        }
+        return false;
 
     }
 
@@ -48,7 +54,7 @@ public class ListaNumeros
      */
     public boolean estaCompleta()
     {
-        return true;
+        return pos == numeros.length;
 
     }
 
@@ -57,7 +63,7 @@ public class ListaNumeros
      */
     public boolean estaVacia() 
     {
-        return true;
+        return pos == 0;
 
     }
 
@@ -66,7 +72,7 @@ public class ListaNumeros
      */
     public int getTotalNumeros()
     {
-        return 0;
+        return pos;
 
     }
 
@@ -75,7 +81,11 @@ public class ListaNumeros
      */
     public void vaciarLista() 
     {
-        
+        for(int i = 0;i < pos;i--){
+            numeros[i] = 0;
+            pos = 0;
+
+        }
     }
 
     /**
@@ -84,23 +94,33 @@ public class ListaNumeros
      */
     public boolean estaElemento(int numero) 
     {
-        
+
+        int i = 0;
+        while (i < numeros.length)
+        {
+            if (numeros[i] == numero)
+            {
+                return true;
+            }
+            else
+            {
+                i++;
+            }
+        }
         return false;
     }
 
-    /**
-     * Representación textual de la lista de la forma indicada  (ver enunciado)
-     * Si numeros = {14, 8, 13, 9, 11, 5, 3, 10, 7, 1}
-     *  devuelve | 14 | 8 | 13 | 9 | 11 | 5 | 3 | 10 | 7 | 1 |
-     * 
-     * Si la lista está vacía devuelve | |
-     */
-    public String toString() 
-    {
-        
-        return null;
-    }
+    // /**
+    // * Representación textual de la lista de la forma indicada  (ver enunciado)
+    // * Si numeros = {14, 8, 13, 9, 11, 5, 3, 10, 7, 1}
+    // *  devuelve | 14 | 8 | 13 | 9 | 11 | 5 | 3 | 10 | 7 | 1 |
+    // * 
+    // * Si la lista está vacía devuelve | |
+    // */
+    // public String toString() 
+    // {
 
+    // }
     /**
      * Mostrar en pantalla la lista
      */
@@ -122,7 +142,6 @@ public class ListaNumeros
      * (ver detalles en el enunciado)
      */
     public int[] expandir() {
-         
 
         return null;
     }
@@ -145,11 +164,9 @@ public class ListaNumeros
      *  después de reorganizarParesImpares() quedaría {4, 2, 8, 3, 7, 9, 5, 11, 13}
      */
     public void reorganizarParesImpares() {
-         
 
     }
 
-     
     /**
      *  Usando métodos de la clase Arrays haz una copia 
      *  de numeros al tamaño indicado por su longitud lógica
@@ -158,7 +175,7 @@ public class ListaNumeros
      *  que incluya los elementos del array ordenado
      */
     public ListaNumeros nuevaLista() {
-         
+
         return null;
 
     }
@@ -176,8 +193,14 @@ public class ListaNumeros
      */
     public int[][] toArray2D() 
     {
-        
-        return null;
+        int[][] array2D = new int[4][4];
+        for (int i = 0; i < array2D.length; i++) {
+            for (int j = 0; j < array2D[i].length; j++) {
+                array2D[i][j] = 0;
+            }
+
+        }
+        return array2D;
     }
 
     /**
@@ -199,9 +222,14 @@ public class ListaNumeros
         System.out.println("Original: " + numeros.toString());
         int[] expandido = numeros.expandir();
         System.out.println("Expandido: " + Arrays.toString(expandido));
-        // seguir completando
+        System.out.println("El array esta compuesto por:" + numeros.getTotalNumeros());
+        numeros.reorganizarParesImpares();
+        System.out.println("La nueva lista es:" + numeros.nuevaLista());
+        System.out.println("El array ordenado por impares y pares queda" 
+            + numeros.toString());
+        System.out.println("La lista del array2d quedaria:" + numeros.toArray2D());
+
         
-        
-        
+
     }
 }
